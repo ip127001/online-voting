@@ -1,17 +1,16 @@
 # Online-voting
 > A Vue.js project which has vuejs and firebase integration
 
-## Build Setup
+### Build Setup
 
-
-# install dependencies
+### install dependencies
 ```
 npm install
 npm run dev
 npm run build
 ```
 
-**steps for voting**
+### steps for voting
 ```
 1. enter email for authenticated if exits in database then go to voting page otherwise error page.
 2. voting page shows your data in database and option to select your candidate.
@@ -20,6 +19,6 @@ npm run build
 5. Now you cannnot vote again.
 ```
 
-## important 
+**Important** 
 ### Add data to firebase in Data node and voting data will be saved in Student node
 
