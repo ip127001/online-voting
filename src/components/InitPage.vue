@@ -14,7 +14,7 @@
                 <form-group>
                     <Label>Enter your email id</Label>
                     <input type="email" placeholder="your email" v-model="email" class="form-control">
-                    <Label>Enter your email id</Label>
+                    <Label>Enter your enrollment no</Label>
                     <input type="text" placeholder="your enroll" v-model="enroll" class="form-control">
                     <br>
                     <button class="btn btn-primary" @click="postData">post data</button>
@@ -39,17 +39,14 @@
                         return response.json();
                     })
                     .then(data => {
-                        console.log(typeof(data));
+                        console.log(data);
                         let record = false;
                         const resultArray = [];
                         for (let key in data) {
                             if (this.email == data[key].email) {
                                 record = true;
-    
                                 this.$store.state.email = this.email;
-                                console.log(this.$store.state.email);
                                 this.$store.state.enroll = data[key].enroll;
-    
                             }
                         }
                         if (record) {
@@ -79,8 +76,7 @@
             postData() {
                 const voti = {
                     email: this.email,
-                    enroll: this.enroll,
-                    name: this.name
+                    enroll: this.enroll
                 };
 
                 this.$http.post('https://online-voting-a9789.firebaseio.com/data.json', voti)

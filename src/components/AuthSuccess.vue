@@ -21,7 +21,8 @@
                         <button @click="logOut">Logout</button>
                     </div>
                     <div class="panel panel-body">
-                        Enrollment Number: {{ enroll }} Email: {{ email }}
+                        Your Enrollment Number: {{ enroll }} <br>
+                        Your Email-id: {{ email }}
                     </div>
                 </div>
             </div>
@@ -74,12 +75,30 @@
     
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3 col-lg-8 col-lg-offset-2 col-sm-8 col-sm-2col-xs-12 ">
-                <button class="btn btn-success" @click="fetchData">Fetch data</button>
-                <ul class="list-group">
+                <button class="btn btn-success" @click="fetchData">Fetch all voting data</button>
+                <!-- <ul class="list-group">
                     <li class="list-group-list" v-for="u in users" :key="u.email">
                         {{ u.email}} = {{ u.candidate1}} : {{ u.candidate2}}: {{ u.candidate3}}
                     </li>
-                </ul>
+                </ul> -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>VOTER</th>
+                            <th>CSE Candidate</th>
+                            <th>ECE Candidate</th>
+                            <th>EEE Candidate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="u in users" :key="u.email">
+                            <td>{{ u.email }}</td>
+                            <td>{{ u.candidate1 }}</td>
+                            <td>{{ u.candidate2 }}</td>
+                            <td>{{ u.candidate3 }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     
